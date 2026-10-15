@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4b223">
+<meta name="description" content="Pesan makanan rumahan dan minuman segar dari Dapur Rasa.">
+<meta property="og:title" content="Dapur Rasa — Makan Enak, Hati Senang"><meta property="og:description" content="Pesan makanan rumahan dan minuman segar dengan mudah.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍛</text></svg>">
+<title>Dapur Rasa — Makan Enak, Hati Senang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--kunyit:#f4b223;--kunyit2:#ffd466;--tint:#fff1cc;--sambal:#b72a1b;--sambal2:#8c1d12;--arang:#2b1a12;--paper:#fffdf7;--muted:#7a6a5d;--line:#ecdfc6;--daun:#2f6b3f;--shadow:0 14px 36px #2b1a1218;--disp:'Bricolage Grotesque',system-ui,sans-serif;--body:'Figtree',system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--paper);color:var(--arang);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+button,input,textarea,select{font:inherit;color:inherit}button{cursor:pointer}button,a{touch-action:manipulation}a{color:inherit;text-decoration:none}img{max-width:100%}
+h1,h2,h3,h4,p{margin-top:0}
+.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+:focus-visible{outline:3px solid var(--sambal);outline-offset:2px}
+.hidden{display:none!important}
+::selection{background:var(--kunyit);color:var(--arang)}
+
+.topline{background:var(--arang);color:#f3e2bd;font-size:13px;padding:8px 0}
+.topline .wrap{display:flex;justify-content:space-between;gap:12px}
+.navbar{position:sticky;top:0;z-index:30;background:#fffdf7f2;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:18px;position:relative}
+.brand{display:flex;align-items:center;gap:11px;font:800 22px/1 var(--disp);letter-spacing:-.02em}
+.brand-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:50% 50% 50% 8px;background:var(--sambal);color:var(--kunyit2);font-size:22px;flex:none}
+.brand small{display:block;font:500 11px var(--body);letter-spacing:0;color:var(--muted);margin-top:5px}
+.navlinks{display:flex;gap:28px;font-weight:600;font-size:15px}
+.navlinks a{padding:6px 0;border-bottom:2px solid transparent;transition:border-color .2s}.navlinks a:hover{border-color:var(--sambal)}
+.navright{display:flex;align-items:center;gap:10px}
+.menu-btn{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:12px;background:#fff;font-size:18px}
+
+.btn{border:0;border-radius:999px;padding:12px 22px;font-weight:700;font-size:15px;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:background .2s,transform .2s,color .2s;white-space:nowrap}
+.btn:active{transform:scale(.97)}.btn:disabled{opacity:.6;cursor:wait}
+.primary{background:var(--sambal);color:#fff}.primary:hover{background:var(--sambal2)}
+.soft{background:var(--tint);color:var(--arang)}.soft:hover{background:var(--kunyit2)}
+.outline{background:transparent;box-shadow:inset 0 0 0 2px var(--arang);color:var(--arang)}.outline:hover{background:var(--arang);color:var(--kunyit2)}
+.full{width:100%}
+.cart-count{background:var(--kunyit);color:var(--arang);border-radius:99px;min-width:22px;height:22px;display:inline-grid;place-items:center;font-size:12px;font-weight:800;padding:0 6px}
+
+.hero{background:var(--kunyit);overflow:hidden;padding:56px 0 0}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:end}
+.hero-text{padding-bottom:64px}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--arang);color:var(--kunyit2);border-radius:999px;padding:7px 15px;font-size:13px;font-weight:700}
+.dot{width:8px;height:8px;background:var(--kunyit);border-radius:50%}
+.hero h1{font:800 clamp(44px,6.4vw,92px)/.98 var(--disp);letter-spacing:-.035em;margin:22px 0 20px}
+.hero h1 span{color:var(--sambal)}
+.hero-copy{max-width:480px;font-size:17px;color:#4a3426}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0}
+.hero-note{display:flex;align-items:center;gap:12px;font-size:14px;line-height:1.4}
+.emoji-stack{display:flex}.emoji-stack span{width:36px;height:36px;border-radius:50%;border:2px solid var(--kunyit);display:grid;place-items:center;background:#fff;margin-left:-8px}.emoji-stack span:first-child{margin-left:0}
+.hero-art{position:relative;background:var(--sambal);border-radius:999px 999px 0 0;padding:14px 14px 0;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.hero-art img{display:block;width:100%;height:clamp(340px,42vw,500px);object-fit:cover;border-radius:999px 999px 0 0}
+.float{position:absolute;z-index:2;background:#fff;border-radius:16px;padding:12px 16px;box-shadow:var(--shadow)}
+.float strong{font-size:14px;display:block}.float small{font-size:12px;color:var(--muted)}
+.float.one{left:-34px;top:70px}.float.two{right:-14px;bottom:60px}
+.float.two b{font:800 30px/1 var(--disp);color:var(--sambal);display:block}
+@keyframes rise{from{transform:translateY(48px);opacity:0}to{transform:none;opacity:1}}
+
+.stats{background:var(--sambal);color:#fff}
+.stats .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
+.stat{display:flex;align-items:center;gap:14px;padding:22px 24px;border-left:1px solid #ffffff30}
+.stat:first-child{border-left:0;padding-left:0}
+.stat-icon{font-size:30px;line-height:1}
+.stat strong{font:700 22px/1.1 var(--disp);display:block}.stat small{font-size:13px;color:#ffd9d2}
+
+.section{padding:88px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:34px}
+.kicker{font-weight:700;font-size:15px;color:var(--sambal);margin-bottom:6px}
+.section h2{font:800 clamp(32px,4vw,52px)/1.05 var(--disp);letter-spacing:-.03em;margin:0}
+.section-head p{max-width:380px;color:var(--muted);margin:0}
+
+.tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:26px}
+.search{display:flex;align-items:center;gap:10px;flex:1 1 280px;max-width:380px;background:#fff;border:2px solid var(--line);border-radius:999px;padding:0 18px}
+.search:focus-within{border-color:var(--sambal)}
+.search input{width:100%;border:0;outline:0;background:transparent;padding:11px 0;font-size:15px}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filter{border:2px solid var(--line);border-radius:999px;padding:9px 18px;background:#fff;font-weight:700;font-size:14px;transition:.2s}
+.filter:hover{border-color:var(--arang)}
+.filter.active{background:var(--arang);border-color:var(--arang);color:var(--kunyit2)}
+.sort{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted)}
+.sort select{border:2px solid var(--line);border-radius:999px;background:#fff;padding:9px 14px;font-weight:600;color:var(--arang)}
+
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:border-color .2s,box-shadow .2s}
+.card:hover{border-color:var(--kunyit);box-shadow:var(--shadow)}
+.photo{height:184px;position:relative;overflow:hidden;background:var(--tint)}
+.photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.card:hover .photo img{transform:scale(1.06)}
+.tag{position:absolute;top:12px;left:12px;background:var(--kunyit);color:var(--arang);padding:5px 11px;border-radius:99px;font-size:12px;font-weight:700}
+.details{padding:16px;display:flex;flex-direction:column;flex:1}
+.details h3{font:700 18px/1.2 var(--disp);margin:0}
+.details p{font-size:13px;color:var(--muted);line-height:1.55;margin:8px 0 14px;flex:1}
+.bottom{display:flex;justify-content:space-between;align-items:center;gap:8px;border-top:1px dashed var(--line);padding-top:12px}
+.price{font:800 19px var(--disp);color:var(--sambal)}
+.stock{font-size:12px;color:var(--daun);font-weight:600}
+.add{width:42px;height:42px;border:0;border-radius:50%;background:var(--sambal);color:#fff;font-size:24px;line-height:1;transition:background .2s,transform .2s;flex:none}
+.add:hover{background:var(--sambal2);transform:rotate(90deg)}
+.add:disabled{opacity:.3;cursor:not-allowed;transform:none}
+.empty{grid-column:1/-1;text-align:center;padding:50px;color:var(--muted)}
+
+.steps{background:var(--arang);color:#f6e8cd}
+.steps h2{color:#fff}.steps .kicker{color:var(--kunyit)}.steps .section-head p{color:#cdb98f}
+.step-list{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;list-style:none;padding:0;margin:0}
+.step-list li{border-top:3px solid var(--kunyit);padding-top:18px}
+.step-list b{font:800 44px/1 var(--disp);color:var(--kunyit)}
+.step-list h3{font:700 20px var(--disp);color:#fff;margin:10px 0 6px}
+.step-list p{font-size:14px;color:#cdb98f;margin:0}
+
+.about{background:var(--tint)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.about-grid p.lead{color:#5a4536;font-size:17px;max-width:460px;margin:18px 0 0}
+.points{display:grid;gap:14px}
+.point{display:flex;gap:16px;background:#fff;border-radius:20px;padding:20px;border:1px solid var(--line)}
+.point-icon{flex:none;width:48px;height:48px;border-radius:14px;background:var(--kunyit);display:grid;place-items:center;font-size:24px}
+.point h3{font:700 18px var(--disp);margin:0 0 4px}.point p{margin:0;font-size:14px;color:var(--muted)}
+
+.promo{padding:80px 0 0}
+.promo-box{background:var(--sambal);color:#fff;border-radius:32px;padding:48px 52px;display:flex;justify-content:space-between;align-items:center;gap:24px;position:relative;overflow:hidden}
+.promo-box:after{content:'';position:absolute;right:-60px;top:-90px;width:260px;height:260px;border-radius:50%;background:#ffffff14;pointer-events:none}
+.promo-box h2{font:800 clamp(28px,3.4vw,42px)/1.1 var(--disp);margin:0 0 10px;letter-spacing:-.02em}
+.promo-box p{margin:0;color:#ffd9d2;max-width:520px}
+.promo-box .btn{background:var(--kunyit);color:var(--arang);position:relative;z-index:1}.promo-box .btn:hover{background:var(--kunyit2)}
+
+.info-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:start}
+.faq{margin-top:26px}
+.faq details{border-bottom:1px solid var(--line);padding:16px 0}
+.faq summary{font:700 18px var(--disp);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:'+';font-size:26px;line-height:1;color:var(--sambal)}
+.faq details[open] summary:after{content:'−'}
+.faq details p{margin:10px 0 0;color:var(--muted);font-size:15px;max-width:560px}
+.contact{background:var(--kunyit);border-radius:28px;padding:30px}
+.contact h3{font:800 26px var(--disp);margin:0 0 16px}
+.contact dl{margin:0 0 22px;display:grid;gap:14px}.contact dt{font-weight:700;font-size:13px;color:#5a4220}.contact dd{margin:0;font-weight:600}
+
+footer{background:var(--arang);color:#e9d9b6;padding:48px 0 24px}
+.footer-top{display:flex;justify-content:space-between;gap:30px;padding-bottom:30px}
+.footer-about{max-width:360px}.footer-about .brand{color:#fff}.footer-about .brand small{color:#bfa97c}
+.footer-about p{font-size:14px;color:#cdb98f;margin:14px 0 0}
+.footer-links{display:flex;gap:56px}.footer-links div{display:grid;gap:10px;font-size:14px;align-content:start}
+.footer-links strong{color:var(--kunyit);font:700 16px var(--disp)}.footer-links a:hover{color:#fff}
+.copyright{border-top:1px solid #ffffff1f;padding-top:18px;font-size:13px;color:#bfa97c;display:flex;justify-content:space-between;gap:12px}
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:40;width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;font-size:26px;box-shadow:0 10px 26px #0003;transition:transform .2s}.wa-float:hover{transform:scale(1.08)}
+
+.overlay{position:fixed;inset:0;background:#2b1a12cc;z-index:50;display:none;align-items:center;justify-content:center;padding:17px}.overlay.open{display:flex}
+.modal{width:min(460px,100%);max-height:92vh;overflow:auto;background:var(--paper);border-radius:28px;padding:28px;box-shadow:0 30px 80px #0005}
+.modal-head{display:flex;justify-content:space-between;gap:12px;margin-bottom:18px}
+.modal h2,.panel-head h2{font:800 28px/1.1 var(--disp);margin:0;letter-spacing:-.02em}
+.modal-head p{font-size:14px;color:var(--muted);margin:8px 0 0}
+.close{border:0;background:var(--tint);border-radius:50%;width:36px;height:36px;font-size:22px;flex:none;line-height:1}.close:hover{background:var(--kunyit)}
+.tabs{display:flex;background:var(--tint);padding:4px;border-radius:999px;margin-bottom:18px}
+.tabs button{flex:1;border:0;background:transparent;border-radius:999px;padding:10px;font-weight:700;font-size:14px;color:var(--muted)}
+.tabs button.active{background:var(--arang);color:var(--kunyit2)}
+.field{display:grid;gap:6px;margin-bottom:12px}.field label{font-size:13px;font-weight:700}
+.field input,.field textarea,.field select{width:100%;border:2px solid var(--line);border-radius:14px;background:#fff;padding:12px 14px;font-size:15px;outline:0}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--sambal)}
+.msg{font-size:13px;color:var(--sambal);margin:10px 0}.msg.ok{color:var(--daun)}
+.fineprint{font-size:12px;color:var(--muted);margin:14px 0 0}
+.drawer{position:fixed;inset:0;z-index:45;display:none;background:#2b1a12b3;justify-content:flex-end}.drawer.open{display:flex}
+.panel{width:min(460px,100%);height:100%;background:var(--paper);padding:24px;display:flex;flex-direction:column;box-shadow:-20px 0 70px #0004}
+.panel-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:16px;border-bottom:2px solid var(--kunyit)}
+.cart-items{overflow:auto;flex:1;padding:8px 0}
+.cart-row{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:12px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.cart-row img{width:64px;height:64px;border-radius:16px;object-fit:cover}
+.cart-row h4{font:700 15px var(--disp);margin:0 0 3px}.cart-row small{font-size:12px;color:var(--muted)}
+.cart-row strong{font-size:13px;color:var(--sambal)}
+.qty{display:flex;align-items:center;gap:10px;margin-top:8px;font-weight:700}
+.qty button{width:28px;height:28px;border:2px solid var(--line);border-radius:50%;background:#fff;line-height:1}.qty button:hover{border-color:var(--sambal);color:var(--sambal)}
+.cart-total{border-top:1px solid var(--line);padding-top:16px}
+.total-line{display:flex;justify-content:space-between;font:800 20px var(--disp);margin-bottom:14px}
+.cart-empty{text-align:center;color:var(--muted);padding:50px 10px}
+.checkout{display:none;border-top:1px solid var(--line);padding-top:14px;margin-top:14px;overflow:auto;max-height:55vh}.checkout.open{display:block}
+.checkout .field{margin-bottom:9px}.checkout textarea{resize:vertical;min-height:60px}
+.toast{position:fixed;z-index:90;bottom:22px;left:50%;transform:translate(-50%,15px);background:var(--arang);color:var(--kunyit2);border-radius:999px;padding:12px 20px;font-size:14px;font-weight:600;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.2s;max-width:calc(100% - 30px);text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.step-list{grid-template-columns:repeat(2,1fr)}.hero-grid{grid-template-columns:1fr;gap:20px}.hero-text{padding-bottom:0}.hero-art{max-width:460px;margin:0 auto;width:100%}.about-grid,.info-grid{grid-template-columns:1fr}}
+@media(max-width:760px){
+.wrap{width:calc(100% - 28px)}.topline .wrap span:last-child{display:none}
+.nav{height:64px}.menu-btn{display:grid;place-items:center}
+.navlinks{display:none;position:absolute;top:100%;left:-14px;right:-14px;background:var(--paper);flex-direction:column;gap:0;padding:6px 20px 14px;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+.navlinks.open{display:flex}.navlinks a{padding:13px 0;border-bottom:1px solid var(--line)}
+.brand{font-size:18px}.brand small{display:none}.brand-icon{width:38px;height:38px}
+.navright{gap:6px}.navright .btn{padding:10px 14px;font-size:13px}.cart-label{display:none}
+.hero{padding-top:34px}.float.one{left:-4px;top:30px}.float.two{right:-4px;bottom:30px}
+.stat{display:block;text-align:center;padding:14px 6px}.stat:first-child{padding-left:6px}.stat-icon{font-size:22px;margin-bottom:4px}.stat strong{font-size:15px}.stat small{font-size:11px}
+.section{padding:56px 0}.section-head{display:block}.section-head p{margin-top:10px}
+.sort{margin-left:0;width:100%}.search{max-width:none;flex-basis:100%}
+.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.photo{height:132px}.details{padding:12px}.details h3{font-size:15px}.details p{font-size:12px}.price{font-size:16px}.add{width:36px;height:36px}
+.step-list{grid-template-columns:1fr}
+.promo{padding:56px 0 0}.promo-box{display:block;padding:32px 24px}.promo-box .btn{margin-top:20px}
+.contact{padding:24px}
+.footer-top{display:block}.footer-links{margin-top:26px;gap:36px}.copyright{display:block}.copyright span{display:block}
+.wa-float{width:52px;height:52px;right:14px;bottom:14px}
+}
+@media(max-width:380px){.grid{gap:8px}.hero h1{font-size:40px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="topline"><div class="wrap"><span>🌿 Masakan lezat, dibuat dengan sepenuh hati</span><span>Menu harian · Pesan dengan mudah</span></div></div>
+<header class="navbar"><div class="wrap nav"><a href="#beranda" class="brand"><span class="brand-icon">✳</span><span>Dapur Rasa<small>Makan enak, hati senang</small></span></a><nav class="navlinks" id="navlinks" aria-label="Navigasi utama"><a href="#beranda">Beranda</a><a href="#menu">Menu</a><a href="#cara-pesan">Cara Pesan</a><a href="#tentang">Tentang Kami</a><a href="#kontak">Kontak</a></nav><div class="navright"><button id="authNav" class="btn soft" onclick="openAuth()">Masuk / Daftar</button><button class="btn primary" onclick="toggleCart()">🛒 <span class="cart-label">Keranjang</span> <span id="cart-count" class="cart-count">0</span></button><button class="menu-btn" id="menuBtn" aria-label="Buka menu navigasi" aria-expanded="false">☰</button></div></div></header>
+<main>
+<section class="hero" id="beranda"><div class="wrap hero-grid"><div class="hero-text"><div class="pill"><span class="dot"></span> Hangat, segar, selalu lezat</div><h1>Rasa rumahan,<br><span>bahagia di setiap suapan.</span></h1><p class="hero-copy">Temukan makanan favorit dan minuman segar yang siap menemani harimu. Pilih menu, masukkan ke keranjang, lalu kirim pesanan dengan praktis.</p><div class="hero-actions"><a class="btn primary" href="#menu">Jelajahi Menu ↗</a><button class="btn outline" onclick="openAuth()">Buat Akun</button></div><div class="hero-note"><div class="emoji-stack"><span>🍜</span><span>🍗</span><span>🥤</span></div><span><strong>30 pilihan menu</strong><br>makanan favorit &amp; minuman segar</span></div></div><div class="hero-art"><div class="float one"><strong>✦ Favorit pelanggan</strong><small>Rasa yang bikin kembali</small></div><img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1000&q=85" alt="Sajian makanan" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c.jpg?auto=format&fit=crop&w=1000&q=80'"><div class="float two"><b>30+</b><strong>Menu pilihan</strong><small>Makanan dan minuman</small></div></div></div></section>
+<div class="stats"><div class="wrap"><div class="stat"><div class="stat-icon">🍲</div><div><strong>20 menu</strong><small>Hidangan makanan</small></div></div><div class="stat"><div class="stat-icon">🥤</div><div><strong>10 menu</strong><small>Minuman segar</small></div></div><div class="stat"><div class="stat-icon">📲</div><div><strong>Praktis</strong><small>Pesan dalam beberapa langkah</small></div></div></div></div>
+
+<section class="section" id="menu"><div class="wrap"><div class="section-head"><div><div class="kicker">Pilihan dari dapur kami</div><h2>Temukan favoritmu.</h2></div><p>Dari hidangan mengenyangkan sampai minuman menyegarkan, ada pilihan untuk setiap selera.</p></div><div class="tools"><label class="search"><span>⌕</span><input id="search-input" type="search" placeholder="Cari makanan atau minuman..." aria-label="Cari menu"></label><div class="filters"><button class="filter active" data-filter="semua">Semua menu</button><button class="filter" data-filter="makanan">🍛 Makanan</button><button class="filter" data-filter="minuman">🥤 Minuman</button></div><label class="sort"><span id="result-count">30 menu</span><select id="sort-select" aria-label="Urutkan menu"><option value="">Urutan awal</option><option value="murah">Harga terendah</option><option value="mahal">Harga tertinggi</option><option value="nama">Nama A–Z</option></select></label></div><div id="product-loading" class="empty">Memuat menu...</div><div id="product-grid" class="grid hidden"></div></div></section>
+
+<section class="section steps" id="cara-pesan"><div class="wrap"><div class="section-head"><div><div class="kicker">Mudah dan cepat</div><h2>Empat langkah sampai pesanan terkirim.</h2></div><p>Semua dilakukan dari satu halaman, tanpa perlu aplikasi tambahan.</p></div><ol class="step-list"><li><b>1</b><h3>Pilih menu</h3><p>Cari makanan atau minuman favoritmu, lalu tekan tombol + untuk memasukkannya ke keranjang.</p></li><li><b>2</b><h3>Masuk atau daftar</h3><p>Buat akun dengan email agar pesananmu tercatat atas namamu.</p></li><li><b>3</b><h3>Isi data pesanan</h3><p>Tulis nama, nomor WhatsApp, dan alamat, lalu pilih metode pembayaran.</p></li><li><b>4</b><h3>Konfirmasi lewat WhatsApp</h3><p>Pesanan dikirim ke admin. Ongkir dan pembayaran dikonfirmasi di sana.</p></li></ol></div></section>
+
+<section class="section about" id="tentang"><div class="wrap about-grid"><div><div class="kicker">Tentang Dapur Rasa</div><h2>Dapur kecil, rasa yang akrab.</h2><p class="lead">Kami menyajikan masakan yang akrab di lidah dan minuman yang menyegarkan, dari nasi goreng sampai es kelapa muda. Kamu tinggal memilih, kami yang menyiapkan.</p></div><div class="points"><div class="point"><div class="point-icon">🍛</div><div><h3>Menu lengkap</h3><p>20 hidangan dan 10 minuman untuk berbagai selera.</p></div></div><div class="point"><div class="point-icon">💸</div><div><h3>Harga bersahabat</h3><p>Terjangkau untuk makan sehari-hari, tanpa mengurangi rasa.</p></div></div><div class="point"><div class="point-icon">📲</div><div><h3>Pesan praktis</h3><p>Keranjang, data pesanan, dan konfirmasi WhatsApp dalam satu halaman.</p></div></div></div></div></section>
+
+<section class="promo"><div class="wrap"><div class="promo-box"><div><h2>Sudah tahu mau makan apa?</h2><p>Pilih menu favoritmu, siapkan pesanan, dan kirim langsung ke admin melalui WhatsApp.</p></div><a class="btn" href="#menu">Lihat Semua Menu ↗</a></div></div></section>
+
+<section class="section" id="kontak"><div class="wrap info-grid"><div><div class="kicker">Ada pertanyaan?</div><h2>Pertanyaan yang sering muncul.</h2><div class="faq"><details><summary>Bagaimana cara memesan?</summary><p>Pilih menu, masukkan ke keranjang, masuk ke akunmu, lalu isi data pesanan. Pesanan akan dikirim ke WhatsApp admin untuk dikonfirmasi.</p></details><details><summary>Metode pembayaran apa saja yang tersedia?</summary><p>Kamu bisa memilih bayar saat konfirmasi, tunai, atau transfer. Pilihan ini ada di formulir pemesanan.</p></details><details><summary>Apakah ada ongkos kirim?</summary><p>Ongkir dikonfirmasi oleh admin lewat WhatsApp setelah pesananmu diterima.</p></details><details><summary>Kenapa harus masuk akun dulu?</summary><p>Supaya data pesanan tercatat atas akunmu dan admin mudah menghubungimu.</p></details></div></div><aside class="contact"><h3>Hubungi kami</h3><dl><div><dt>Jam buka</dt><dd>Setiap hari, 08.00 – 21.00 WIB</dd></div><div><dt>Alamat</dt><dd>Jl. Contoh No. 12, Kota Anda</dd></div><div><dt>Pemesanan</dt><dd>Lewat website atau WhatsApp</dd></div></dl><a id="contact-wa" class="btn primary full" href="#" target="_blank" rel="noopener">Chat WhatsApp 💬</a></aside></div></section>
+</main>
+<footer><div class="wrap"><div class="footer-top"><div class="footer-about"><a href="#beranda" class="brand"><span class="brand-icon">✳</span><span>Dapur Rasa<small>Makan enak, hati senang</small></span></a><p>Tempat menemukan makanan yang akrab di lidah dan minuman yang menyegarkan. Terima kasih sudah memilih kami.</p></div><div class="footer-links"><div><strong>Navigasi</strong><a href="#beranda">Beranda</a><a href="#menu">Menu kami</a><a href="#cara-pesan">Cara pesan</a><a href="#tentang">Tentang kami</a></div><div><strong>Pelanggan</strong><a href="#" onclick="openAuth();return false">Login / daftar</a><a href="#" onclick="toggleCart();return false">Keranjang</a><a href="#kontak">Kontak &amp; FAQ</a></div></div></div><div class="copyright"><span>© <span id="year"></span> Dapur Rasa. Hak cipta dilindungi.</span><span>Harga dan stok mengikuti data menu yang tersedia.</span></div></div></footer>
+<a id="wa-float" class="wa-float" href="#" target="_blank" rel="noopener" aria-label="Chat WhatsApp admin">💬</a>
+<div id="auth-modal" class="overlay" role="dialog" aria-modal="true" aria-labelledby="auth-title"><div class="modal"><div class="modal-head"><div><h2 id="auth-title">Selamat datang!</h2><p>Masuk atau buat akun pelanggan untuk melanjutkan pemesanan.</p></div><button class="close" onclick="closeAuth()" aria-label="Tutup">×</button></div><div class="tabs"><button id="tab-login" class="active" onclick="setAuthMode('login')">Masuk</button><button id="tab-register" onclick="setAuthMode('register')">Daftar akun</button></div><form id="auth-form"><div id="name-field" class="field hidden"><label for="auth-name">Nama lengkap</label><input id="auth-name" autocomplete="name" placeholder="Nama kamu"></div><div class="field"><label for="auth-email">Email</label><input id="auth-email" type="email" autocomplete="email" required placeholder="nama@email.com"></div><div class="field"><label for="auth-password">Kata sandi</label><input id="auth-password" type="password" autocomplete="current-password" minlength="6" required placeholder="Minimal 6 karakter"></div><button id="auth-submit" class="btn primary full" type="submit">Masuk</button><p id="auth-msg" class="msg" aria-live="polite"></p></form><p class="fineprint">Akun dikelola dengan aman melalui Firebase Authentication.</p></div></div>
+<div id="cart-modal" class="drawer"><div class="panel"><div class="panel-head"><h2>Keranjang belanja</h2><button class="close" onclick="toggleCart()" aria-label="Tutup keranjang">×</button></div><div id="cart-items" class="cart-items"></div><div id="cart-total-box" class="cart-total"><div class="total-line"><span>Total pembayaran</span><span id="cart-total">Rp0</span></div><button id="checkout-start" class="btn primary full" onclick="startCheckout()">Lanjutkan pemesanan →</button></div><form id="checkout-form" class="checkout"><div class="field"><label for="cust-name">Nama lengkap pembeli</label><input id="cust-name" required placeholder="Nama penerima"></div><div class="field"><label for="cust-phone">Nomor WhatsApp aktif</label><input id="cust-phone" type="tel" required placeholder="081234567890"></div><div class="field"><label for="cust-address">Alamat lengkap / catatan</label><textarea id="cust-address" required rows="2" placeholder="Jalan, kelurahan, kecamatan, kota"></textarea></div><div class="field"><label for="payment-method">Metode pembayaran</label><select id="payment-method"><option>Bayar saat konfirmasi</option><option>Tunai</option><option>Transfer</option></select></div><button type="submit" id="btn-submit" class="btn primary full">Pesan via WhatsApp 📲</button><p id="order-msg" class="msg" aria-live="polite"></p></form></div></div><div id="toast" class="toast" role="status"></div>
+<script>
+/* ================= KONFIGURASI WEBSITE =================
+   1. Tempel URL Web App Apps Script berakhiran /exec di API_URL.
+   2. Ganti WA_ADMIN dengan nomor WhatsApp admin format 62xxxxxxxxxx.
+   3. Isi konfigurasi Firebase agar login dan pendaftaran berfungsi.
+   Apps Script harus mendukung GET produk (JSON) dan POST pesanan.
+========================================================== */
+const API_URL = "https://script.google.com/macros/s/AKfycbwqYUb7iMEZP1CgPK-QE7EddjTKcV1rNQXLwY5sXub2kQMd4yy7umOmwNJLQqWKeBwN/exec";
+const WA_ADMIN = "6281234567890"; // Ganti dengan nomor WhatsApp rumah makan
+const FIREBASE_CONFIG = {apiKey:"ISI_FIREBASE_API_KEY",authDomain:"ISI_PROJECT_ID.firebaseapp.com",projectId:"ISI_PROJECT_ID",appId:"ISI_FIREBASE_APP_ID"};
+const FALLBACK_PRODUCTS = [{"id":1,"nama":"Nasi Goreng Spesial","kategori":"makanan","harga":18000,"stok":25,"foto":"https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&q=80","deskripsi":"Nasi goreng berbumbu gurih dengan telur dan pelengkap."},{"id":2,"nama":"Ayam Geprek","kategori":"makanan","harga":20000,"stok":30,"foto":"https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=800&q=80","deskripsi":"Ayam goreng renyah dengan sambal pedas dan nasi putih."},{"id":3,"nama":"Nasi Ayam Bakar","kategori":"makanan","harga":22000,"stok":20,"foto":"https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=800&q=80","deskripsi":"Nasi putih dengan ayam bakar berbumbu, sambal, dan lalapan."},{"id":4,"nama":"Mie Goreng Jawa","kategori":"makanan","harga":16000,"stok":18,"foto":"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80","deskripsi":"Mie goreng dengan bumbu khas, sayuran, dan telur."},{"id":5,"nama":"Soto Ayam","kategori":"makanan","harga":18000,"stok":20,"foto":"https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80","deskripsi":"Soto ayam berkuah hangat dengan suwiran ayam dan pelengkap."},{"id":6,"nama":"Bakso Sapi","kategori":"makanan","harga":16000,"stok":25,"foto":"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80","deskripsi":"Bakso sapi dalam kuah kaldu gurih, disajikan hangat."},{"id":7,"nama":"Sate Ayam","kategori":"makanan","harga":25000,"stok":15,"foto":"https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=800&q=80","deskripsi":"Sate ayam berbumbu kacang dengan irisan lontong."},{"id":8,"nama":"Ikan Bakar","kategori":"makanan","harga":28000,"stok":12,"foto":"https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80","deskripsi":"Ikan bakar berbumbu dengan sambal dan lalapan segar."},{"id":9,"nama":"Rendang Sapi","kategori":"makanan","harga":30000,"stok":10,"foto":"https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80","deskripsi":"Daging sapi dimasak lama dengan rempah khas Minangkabau."},{"id":10,"nama":"Gado-Gado","kategori":"makanan","harga":15000,"stok":16,"foto":"https://images.unsplash.com/photo-1512621776951-a57141f2e6e2?auto=format&fit=crop&w=800&q=80","deskripsi":"Sayuran rebus dengan tahu, tempe, dan saus kacang."},{"id":11,"nama":"Pecel Ayam","kategori":"makanan","harga":20000,"stok":22,"foto":"https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=800&q=80","deskripsi":"Ayam goreng dengan nasi, sambal, dan lalapan."},{"id":12,"nama":"Lele Goreng","kategori":"makanan","harga":17000,"stok":20,"foto":"https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80","deskripsi":"Lele goreng gurih disajikan bersama nasi dan sambal."},{"id":13,"nama":"Capcay Kuah","kategori":"makanan","harga":18000,"stok":14,"foto":"https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80","deskripsi":"Aneka sayuran dimasak dalam kuah gurih yang hangat."},{"id":14,"nama":"Nasi Uduk Komplit","kategori":"makanan","harga":19000,"stok":18,"foto":"https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&q=80","deskripsi":"Nasi uduk harum dengan lauk, sambal, dan pelengkap."},{"id":15,"nama":"Sop Iga","kategori":"makanan","harga":32000,"stok":10,"foto":"https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80","deskripsi":"Sup iga sapi dengan kuah rempah dan sayuran."},{"id":16,"nama":"Ayam Penyet","kategori":"makanan","harga":20000,"stok":20,"foto":"https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=800&q=80","deskripsi":"Ayam goreng yang dipenyet dengan sambal dan nasi."},{"id":17,"nama":"Mie Ayam","kategori":"makanan","harga":15000,"stok":24,"foto":"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80","deskripsi":"Mie kenyal dengan topping ayam berbumbu dan sayuran."},{"id":18,"nama":"Nasi Campur","kategori":"makanan","harga":22000,"stok":15,"foto":"https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&q=80","deskripsi":"Nasi putih dengan pilihan lauk dan sayur pelengkap."},{"id":19,"nama":"Tumis Kangkung","kategori":"makanan","harga":12000,"stok":18,"foto":"https://images.unsplash.com/photo-1512621776951-a57141f2e6e2?auto=format&fit=crop&w=800&q=80","deskripsi":"Kangkung ditumis dengan bawang dan bumbu sederhana."},{"id":20,"nama":"Cah Tahu Tempe","kategori":"makanan","harga":13000,"stok":18,"foto":"https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80","deskripsi":"Tahu dan tempe dimasak dengan bumbu gurih sederhana."},{"id":21,"nama":"Es Teh Manis","kategori":"minuman","harga":5000,"stok":40,"foto":"https://images.unsplash.com/photo-1556679343-c7306c1976bc.jpg?auto=format&fit=crop&w=800&q=80","deskripsi":"Teh hitam dingin dengan rasa manis yang menyegarkan."},{"id":22,"nama":"Es Jeruk","kategori":"minuman","harga":7000,"stok":30,"foto":"https://images.unsplash.com/photo-1547514701-42782101795e.jpg?auto=format&fit=crop&w=800&q=80","deskripsi":"Perasan jeruk segar disajikan dingin dengan es."},{"id":23,"nama":"Jus Alpukat","kategori":"minuman","harga":12000,"stok":18,"foto":"https://images.unsplash.com/photo-1546173159-315724a31696.jpg?auto=format&fit=crop&w=800&q=80","deskripsi":"Jus alpukat lembut dengan rasa creamy dan manis."},{"id":24,"nama":"Jus Mangga","kategori":"minuman","harga":10000,"stok":20,"foto":"https://images.unsplash.com/photo-1551024709-8f23befc6f87.jpg?auto=format&fit=crop&w=800&q=80","deskripsi":"Jus mangga bercita rasa manis dan tropis."},{"id":25,"nama":"Jus Semangka","kategori":"minuman","harga":9000,"stok":20,"foto":"https://images.unsplash.com/photo-1525385133512-2f3kx6b4f2c0.jpg?auto=format&fit=crop&w=800&q=80","deskripsi":"Minuman semangka segar yang ringan dan menyegarkan."},{"id":26,"nama":"Kopi Susu Es","kategori":"minuman","harga":12000,"stok":25,"foto":"https://images.unsplash.com/photo-1542990253-0b8be8b6f9a4.jpg?auto=format&fit=crop&w=800&q=80","deskripsi":"Kopi dengan susu dan es, cocok dinikmati kapan saja."},{"id":27,"nama":"Es Cokelat","kategori":"minuman","harga":10000,"stok":22,"foto":"https://images.unsplash.com/photo-1542990253-0b8be8b6f9a4.jpg?auto=format&fit=crop&w=800&q=80","deskripsi":"Minuman cokelat dingin dengan rasa cokelat yang kaya."},{"id":28,"nama":"Lemon Tea","kategori":"minuman","harga":8000,"stok":25,"foto":"https://images.unsplash.com/photo-1513558161293-cdaf765edfd7.jpg?auto=format&fit=crop&w=800&q=80","deskripsi":"Teh dingin dengan sentuhan lemon yang segar."},{"id":29,"nama":"Air Mineral","kategori":"minuman","harga":4000,"stok":60,"foto":"https://images.unsplash.com/photo-1544145945-f90425340c7e.jpg?auto=format&fit=crop&w=800&q=80","deskripsi":"Air mineral dalam kemasan untuk menemani hidangan."},{"id":30,"nama":"Es Kelapa Muda","kategori":"minuman","harga":10000,"stok":18,"foto":"https://images.unsplash.com/photo-1553909489-cd47e0ef937f.jpg?auto=format&fit=crop&w=800&q=80","deskripsi":"Kelapa muda segar disajikan dingin untuk melepas dahaga."}];
+let products=FALLBACK_PRODUCTS.map(normalizeProduct),cart=JSON.parse(localStorage.getItem('dapurRasaCart')||'[]'),activeFilter='semua',searchTerm='',currentUser=null,authMode='login',firebaseAuth=null,firebaseReady=false;
+function normalizeProduct(p){return {id:Number(p.id),nama:p.nama||p.name||p.title||'Menu',kategori:String(p.kategori||p.category||'makanan').toLowerCase(),harga:Number(p.harga??p.price??0),stok:Number(p.stok??p.stock??0),foto:p.foto||p.image||p.foto_url||'',deskripsi:p.deskripsi||p.description||''}}
+function money(n){return new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(Number(n)||0)}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function fallbackPhoto(cat){return cat==='minuman'?'https://images.unsplash.com/photo-1513558161293-cdaf765edfd7.jpg?auto=format&fit=crop&w=800&q=80':'https://images.unsplash.com/photo-1546069901-ba9599a7e63c.jpg?auto=format&fit=crop&w=800&q=80'}
+function renderProducts(){const grid=document.getElementById('product-grid'),shown=products.filter(p=>(activeFilter==='semua'||p.kategori===activeFilter)&&(`${p.nama} ${p.deskripsi}`.toLowerCase().includes(searchTerm)));sortList(shown);document.getElementById('result-count').textContent=shown.length+' menu';if(!shown.length){grid.innerHTML='<div class="empty">Menu tidak ditemukan. Coba kata kunci lain.</div>'}else{grid.innerHTML=shown.map(p=>`<article class="card"><div class="photo"><img loading="lazy" src="${esc(p.foto||fallbackPhoto(p.kategori))}" alt="${esc(p.nama)}" onerror="this.onerror=null;this.src='${fallbackPhoto(p.kategori)}'"><span class="tag">${p.kategori==='minuman'?'🥤 Minuman':'🍛 Makanan'}</span></div><div class="details"><h3>${esc(p.nama)}</h3><p>${esc(p.deskripsi)}</p><div class="bottom"><div><div class="price">${money(p.harga)}</div><div class="stock">${p.stok>0?'Stok: '+p.stok:'Stok habis'}</div></div><button class="add" aria-label="Tambah ${esc(p.nama)}" onclick="addToCart(${p.id})" ${p.stok<=0?'disabled':''}>+</button></div></div></article>`).join('')}document.getElementById('product-loading').classList.add('hidden');grid.classList.remove('hidden')}
+async function loadProducts(){if(!API_URL||API_URL.includes('MASUKKAN_URL')){renderProducts();return}try{const r=await fetch(API_URL,{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);const j=await r.json(),arr=Array.isArray(j)?j:(j.data||j.products||j.produk||[]);if(!Array.isArray(arr)||!arr.length)throw Error('Format data produk tidak sesuai');products=arr.map(normalizeProduct).filter(p=>p.nama);renderProducts()}catch(e){console.warn('Menggunakan katalog bawaan karena data Apps Script belum terbaca:',e);renderProducts();toast('Katalog bawaan ditampilkan; periksa URL Apps Script jika diperlukan.')}}
+function saveCart(){localStorage.setItem('dapurRasaCart',JSON.stringify(cart));document.getElementById('cart-count').textContent=cart.reduce((s,i)=>s+i.qty,0)}
+function addToCart(id){const p=products.find(x=>x.id===id);if(!p||p.stok<=0)return;const it=cart.find(x=>x.id===id);if(it){if(it.qty>=p.stok){toast('Jumlah melebihi stok tersedia.');return}it.qty++}else cart.push({...p,qty:1});saveCart();renderCart();toast(p.nama+' ditambahkan ke keranjang.')}
+function changeQty(id,d){const it=cart.find(x=>x.id===id),p=products.find(x=>x.id===id);if(!it)return;it.qty+=d;if(it.qty<=0)cart=cart.filter(x=>x.id!==id);else if(p&&it.qty>p.stok){it.qty=p.stok;toast('Jumlah sudah mencapai stok tersedia.')}saveCart();renderCart()}
+function renderCart(){const box=document.getElementById('cart-items'),total=cart.reduce((s,i)=>s+i.harga*i.qty,0);document.getElementById('cart-total').textContent=money(total);document.getElementById('cart-total-box').classList.toggle('hidden',!cart.length);document.getElementById('checkout-form').classList.remove('open');if(!cart.length){box.innerHTML='<div class="cart-empty"><div style="font-size:38px">🧺</div><strong>Keranjang masih kosong</strong><br>Pilih menu yang kamu suka untuk mulai memesan.</div>';return}box.innerHTML=cart.map(i=>`<div class="cart-row"><img src="${esc(i.foto||fallbackPhoto(i.kategori))}" alt="" onerror="this.onerror=null;this.src='${fallbackPhoto(i.kategori)}'"><div><h4>${esc(i.nama)}</h4><small>${money(i.harga)} per item</small><div class="qty"><button onclick="changeQty(${i.id},-1)" aria-label="Kurangi">−</button><span>${i.qty}</span><button onclick="changeQty(${i.id},1)" aria-label="Tambah">+</button></div></div><strong style="font-size:11px">${money(i.harga*i.qty)}</strong></div>`).join('')}
+function toggleCart(){document.getElementById('cart-modal').classList.toggle('open');renderCart()}
+function openAuth(){document.getElementById('auth-modal').classList.add('open');document.getElementById('auth-msg').textContent=''}function closeAuth(){document.getElementById('auth-modal').classList.remove('open')}
+function setAuthMode(mode){authMode=mode;document.getElementById('tab-login').classList.toggle('active',mode==='login');document.getElementById('tab-register').classList.toggle('active',mode==='register');document.getElementById('name-field').classList.toggle('hidden',mode!=='register');document.getElementById('auth-title').textContent=mode==='register'?'Buat akun baru':'Selamat datang!';document.getElementById('auth-submit').textContent=mode==='register'?'Daftar sekarang':'Masuk';document.getElementById('auth-msg').textContent=''}
+function updateUser(){const b=document.getElementById('authNav');if(currentUser){b.textContent='Keluar · '+(currentUser.displayName||currentUser.email.split('@')[0]);b.onclick=logoutUser}else{b.textContent='Masuk / Daftar';b.onclick=openAuth}}
+function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');clearTimeout(window._toastTimer);window._toastTimer=setTimeout(()=>el.classList.remove('show'),2800)}
+function startCheckout(){if(!cart.length)return;if(!currentUser){document.getElementById('cart-modal').classList.remove('open');openAuth();toast('Masuk atau daftar terlebih dahulu untuk memesan.');return}document.getElementById('checkout-form').classList.add('open');document.getElementById('cust-name').value=currentUser.displayName||currentUser.email.split('@')[0]||'';document.getElementById('cust-name').focus()}
+async function postOrder(payload){if(!API_URL||API_URL.includes('MASUKKAN_URL'))throw Error('URL Apps Script belum diisi. Tempel URL Web App pada konstanta API_URL.');await fetch(API_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});return true}
+document.getElementById('checkout-form').addEventListener('submit',async e=>{e.preventDefault();if(!cart.length)return;const btn=document.getElementById('btn-submit'),msg=document.getElementById('order-msg');btn.disabled=true;btn.textContent='Menyiapkan pesanan...';msg.textContent='';const invoice='INV-'+Date.now().toString().slice(-7);const payload={action:'createOrder',invoice,nama:document.getElementById('cust-name').value.trim(),email:currentUser?.email||'',whatsapp:document.getElementById('cust-phone').value.trim(),alamat:document.getElementById('cust-address').value.trim(),metodePembayaran:document.getElementById('payment-method').value,items:cart.map(i=>({id:i.id,nama:i.nama,kategori:i.kategori,harga:i.harga,qty:i.qty,foto:i.foto})),total:cart.reduce((s,i)=>s+i.harga*i.qty,0),tanggal:new Date().toISOString(),status:'Menunggu Konfirmasi'};try{await postOrder(payload);let wa=`Halo Admin Dapur Rasa, saya ingin konfirmasi pesanan.\n\n🧾 *Invoice: ${invoice}*\n👤 *Nama:* ${payload.nama}\n📧 *Email:* ${payload.email}\n📱 *No. WhatsApp:* ${payload.whatsapp}\n📍 *Alamat:* ${payload.alamat}\n💳 *Pembayaran:* ${payload.metodePembayaran}\n\n🛍️ *Daftar Pesanan:*\n`;payload.items.forEach(i=>wa+=`• ${i.nama} (${i.qty}x) = ${money(i.harga*i.qty)}\n`);wa+=`\n💰 *Total: ${money(payload.total)}*\n\nMohon konfirmasi pesanan dan ongkir. Terima kasih.`;if(!WA_ADMIN||WA_ADMIN==='6281234567890'){msg.className='msg';msg.textContent='Ganti WA_ADMIN dengan nomor WhatsApp admin di kode website. Pesanan belum dibuka di WhatsApp.';return}window.open(`https://wa.me/${WA_ADMIN}?text=${encodeURIComponent(wa)}`,'_blank','noopener');msg.className='msg ok';msg.textContent='Pesanan disiapkan. Lanjutkan konfirmasi melalui WhatsApp admin.';cart=[];saveCart();renderCart();e.target.reset();setTimeout(()=>{document.getElementById('cart-modal').classList.remove('open');toast('Lanjutkan konfirmasi pesanan di WhatsApp.');},900)}catch(err){msg.className='msg';msg.textContent=err.message||'Pesanan gagal disiapkan. Periksa konfigurasi.'}finally{btn.disabled=false;btn.textContent='Pesan via WhatsApp 📲'}});
+document.getElementById('auth-form').addEventListener('submit',async e=>{e.preventDefault();const msg=document.getElementById('auth-msg'),btn=document.getElementById('auth-submit');msg.className='msg';if(!firebaseReady||!firebaseAuth){msg.textContent='Firebase belum dikonfigurasi. Isi FIREBASE_CONFIG di bagian konfigurasi kode dan aktifkan Email/Password di Firebase Console.';return}btn.disabled=true;btn.textContent='Memproses...';try{const {createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile}=await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js');const email=document.getElementById('auth-email').value.trim(),password=document.getElementById('auth-password').value;if(authMode==='register'){const c=await createUserWithEmailAndPassword(firebaseAuth,email,password);const name=document.getElementById('auth-name').value.trim();if(name)await updateProfile(c.user,{displayName:name});msg.className='msg ok';msg.textContent='Akun berhasil dibuat.'}else{await signInWithEmailAndPassword(firebaseAuth,email,password);msg.className='msg ok';msg.textContent='Berhasil masuk.'}setTimeout(closeAuth,650)}catch(err){msg.textContent=authError(err.code)}finally{btn.disabled=false;btn.textContent=authMode==='register'?'Daftar sekarang':'Masuk'}});
+function authError(code){const m={'auth/email-already-in-use':'Email ini sudah terdaftar.','auth/invalid-email':'Format email tidak valid.','auth/weak-password':'Kata sandi minimal 6 karakter.','auth/invalid-credential':'Email atau kata sandi salah.','auth/user-not-found':'Akun tidak ditemukan.','auth/wrong-password':'Email atau kata sandi salah.','auth/too-many-requests':'Terlalu banyak percobaan. Coba lagi nanti.'};return m[code]||'Autentikasi gagal ('+(code||'error')+'). Periksa konfigurasi Firebase.'}
+function logoutUser(){if(firebaseAuth){import('https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js').then(m=>m.signOut(firebaseAuth))}currentUser=null;updateUser();toast('Kamu sudah keluar dari akun.')}
+document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{activeFilter=b.dataset.filter;document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x===b));renderProducts()}));document.getElementById('search-input').addEventListener('input',e=>{searchTerm=e.target.value.toLowerCase().trim();renderProducts()});document.getElementById('auth-modal').addEventListener('click',e=>{if(e.target.id==='auth-modal')closeAuth()});document.getElementById('cart-modal').addEventListener('click',e=>{if(e.target.id==='cart-modal')toggleCart()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeAuth();document.getElementById('cart-modal').classList.remove('open')}});document.getElementById('year').textContent=new Date().getFullYear();renderProducts();renderCart();loadProducts();
+(async function initFirebase(){if(!FIREBASE_CONFIG.apiKey||FIREBASE_CONFIG.apiKey.startsWith('ISI_'))return;try{const {initializeApp,getApps}=await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js');const {getAuth,onAuthStateChanged}=await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js');const app=getApps().length?getApps()[0]:initializeApp(FIREBASE_CONFIG);firebaseAuth=getAuth(app);firebaseReady=true;onAuthStateChanged(firebaseAuth,u=>{currentUser=u;updateUser()})}catch(e){console.error('Firebase initialization error',e)}})();
+/* ===== Tambahan tema baru ===== */
+function sortList(a){const v=document.getElementById('sort-select').value;if(v==='murah')a.sort((x,y)=>x.harga-y.harga);else if(v==='mahal')a.sort((x,y)=>y.harga-x.harga);else if(v==='nama')a.sort((x,y)=>x.nama.localeCompare(y.nama,'id'))}
+(function(){const mb=document.getElementById('menuBtn'),nl=document.getElementById('navlinks');function closeNav(){nl.classList.remove('open');mb.setAttribute('aria-expanded','false');mb.textContent='☰'}
+mb.addEventListener('click',()=>{const o=nl.classList.toggle('open');mb.setAttribute('aria-expanded',String(o));mb.textContent=o?'✕':'☰'});
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeNav));
+document.getElementById('sort-select').addEventListener('change',renderProducts);
+const wa='https://wa.me/'+WA_ADMIN;['wa-float','contact-wa'].forEach(id=>{const el=document.getElementById(id);if(el)el.href=wa})})();
+</script>
+</body>
+</html>
